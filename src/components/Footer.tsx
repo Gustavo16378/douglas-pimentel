@@ -53,8 +53,20 @@ export default function Footer() {
         </div>
 
         <div style={{ height: '1px', background: 'rgba(201,168,106,0.2)', marginTop: '28px' }} />
-        <div className="font-sans text-cream/[0.38]" style={{ fontSize: '11px', marginTop: '16px' }}>
-          © {year} Douglas Pimentel Advocacia. Todos os direitos reservados.
+        <div
+          className="flex flex-wrap items-center justify-between font-sans text-cream/[0.38]"
+          style={{ fontSize: '11px', marginTop: '16px', gap: '6px 24px' }}
+        >
+          <span>© {year} Douglas Pimentel Advocacia. Todos os direitos reservados.</span>
+          <a
+            href="https://gustavodev.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="gustavodev.dev"
+            className="transition-colors hover:text-gold"
+          >
+            Desenvolvido por <span className="font-semibold text-cream/70">Gustavo Dev</span>
+          </a>
         </div>
       </Container>
     </footer>
