@@ -32,7 +32,16 @@ export function useBodyScrollLock(locked: boolean): void {
       body.style.left = prev.left
       body.style.right = prev.right
       body.style.width = prev.width
+
+      // Restore the scroll position INSTANTLY. The page sets
+      // `html { scroll-behavior: smooth }`, which would otherwise animate this
+      // jump from the top (0) back to `scrollY` — the user sees the page fly up
+      // to the hero and glide back down. Force instant for this one call.
+      const root = document.documentElement
+      const prevBehavior = root.style.scrollBehavior
+      root.style.scrollBehavior = 'auto'
       window.scrollTo(0, scrollY)
+      root.style.scrollBehavior = prevBehavior
     }
   }, [locked])
 }
